@@ -12,15 +12,14 @@ afterEach(() => {
   wrapped.unmount()
 })
 
-it("has a textarea and button::1", () => {
+it("1::has a textarea and button", () => {
   expect(wrapped.find("textarea").length).toEqual(1)
   expect(wrapped.find("button").length).toEqual(1)
 })
 
-describe('the textarea',()=>{
-
-  it("has textarea where user can type::2", () => {
-    // fake change event
+describe("the textarea", () => {
+  beforeEach(() => {
+    // first enter value in textarea
     wrapped.find("textarea").simulate("change", {
       target: {
         value: "new value"
@@ -28,22 +27,17 @@ describe('the textarea',()=>{
     })
     // re-render app
     wrapped.update()
+  })
+
+  it("2::has textarea where user can type", () => {
     // find textarea with prop value
     expect(wrapped.find("textarea").prop("value")).toEqual("new value")
   })
-  
-  it("submit form and clear textarea::3", () => {
-    // first enter vaue in textarea
-    wrapped.find("textarea").simulate("change", {
-      target: {
-        value: "new value"
-      }
-    })
-    // re-render app
-    wrapped.update()
+
+  it("3::form submit, clear textarea", () => {
     // teaxtarea really has text
     expect(wrapped.find("textarea").prop("value")).toEqual("new value")
-  
+
     // submit the form (fake submision)
     wrapped.find("form").simulate("submit")
     // re-render the app
@@ -51,5 +45,4 @@ describe('the textarea',()=>{
     // check textarea is cleared
     expect(wrapped.find("textarea").prop("value")).toEqual("")
   })
-
 })

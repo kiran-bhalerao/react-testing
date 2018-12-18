@@ -13,7 +13,7 @@ class CommentBox extends Component {
   }
   handleSubmit = event => {
     event.preventDefault()
-    // this.props.addComment(this.state.comment)
+    this.props.addComment(this.state.comment)
 
     this.setState({ comment: "" })
   }
@@ -35,14 +35,16 @@ class CommentBox extends Component {
     )
   }
 }
+
 const mapStateToProps = state => {
   return {
     ...state
   }
 }
-// export default connect(
-//   mapStateToProps,
-//   actions
-// )(CommentBox)
 
-export default CommentBox
+export default connect(
+  mapStateToProps,
+  actions
+)(CommentBox)
+
+// export default CommentBox

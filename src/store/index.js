@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from "redux"
-import CommentReducer from "../reducers/CommentReducer"
+import commentReducer from "../reducers/commentReducer"
 
 export default createStore(
   combineReducers({
-    CommentReducer
+    commentReducer
   })
 )
