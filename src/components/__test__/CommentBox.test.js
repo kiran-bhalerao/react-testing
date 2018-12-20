@@ -1,11 +1,16 @@
 import React from "react"
 import CommentBox from "../CommentBox"
 import { mount } from "enzyme"
+import ReduxBase from "../../ReduxBase"
 
 let wrapped = null
 
 beforeEach(() => {
-  wrapped = mount(<CommentBox />)
+  wrapped = mount(
+    <ReduxBase>
+      <CommentBox />
+    </ReduxBase>
+  )
 })
 
 afterEach(() => {

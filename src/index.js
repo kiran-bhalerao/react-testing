@@ -1,5 +1,11 @@
 import React from "react"
 import { render } from "react-dom"
 import App from "./components/App"
+import ReduxBase from './ReduxBase';
 
-render(<App />, document.getElementById("root"))
+render(
+  <ReduxBase>
+    <App />
+  </ReduxBase>,
+  document.getElementById("root")
+)
