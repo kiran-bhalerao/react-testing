@@ -1,7 +1,14 @@
 import React from "react"
 import { Provider } from "react-redux"
-import store from "./store/index"
+import { createStore, combineReducers } from "redux"
+import commentReducer from "./reducers/commentReducer"
 
-export default props => {
-  return <Provider store={store}>{props.children}</Provider>
+export default ({ children, initialState = {} }) => {
+  return (
+    <Provider
+      store={createStore(combineReducers({ commentReducer }), initialState)}
+    >
+      {children}
+    </Provider>
+  )
 }
