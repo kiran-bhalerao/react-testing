@@ -1,11 +1,14 @@
-import { ADD_COMMENT } from "../actions/types"
+import { ADD_COMMENT, FETCH_COMMENT } from '../actions/types'
 
 const INITAIL_STATE = []
-export default (store = INITAIL_STATE, action) => {
+export default (state = INITAIL_STATE, action) => {
   switch (action.type) {
     case ADD_COMMENT:
-      return [...store, action.payload]
+      return [...state, action.payload]
+    case FETCH_COMMENT:
+      let comment = action.payload.data.map(comment => comment.name)
+      return [...state, ...comment]
     default:
-      return store
+      return state
   }
 }
