@@ -1,7 +1,7 @@
-import React from 'react'
 import { mount } from 'enzyme'
-import CommentList from '../CommentList'
+import React from 'react'
 import ReduxBase from '../../ReduxBase'
+import CommentList from '../CommentList'
 
 let wrapped = null
 

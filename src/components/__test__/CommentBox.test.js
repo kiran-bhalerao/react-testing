@@ -1,7 +1,7 @@
-import React from 'react'
-import CommentBox from '../CommentBox'
-import { mount } from 'enzyme'
-import ReduxBase from '../../ReduxBase'
+import { mount } from 'enzyme';
+import React from 'react';
+import ReduxBase from '../../ReduxBase';
+import CommentBox from '../CommentBox';
 
 let wrapped = null
 
@@ -17,12 +17,12 @@ afterEach(() => {
   wrapped.unmount()
 })
 
-it('1::has a textarea and button', () => {
+it('1 Has a textarea and button', () => {
   expect(wrapped.find('textarea').length).toEqual(1)
   expect(wrapped.find('button').length).toEqual(2)
 })
 
-describe('the textarea', () => {
+describe('The textarea', () => {
   beforeEach(() => {
     // first enter value in textarea
     wrapped.find('textarea').simulate('change', {
@@ -34,12 +34,12 @@ describe('the textarea', () => {
     wrapped.update()
   })
 
-  it('2::has textarea where user can type', () => {
+  it('2 Has textarea where user can type', () => {
     // find textarea with prop value
     expect(wrapped.find('textarea').prop('value')).toEqual('new value')
   })
 
-  it('3::form submit, clear textarea', () => {
+  it('3 Should submit the form and clear the textarea', () => {
     // teaxtarea really has text
     expect(wrapped.find('textarea').prop('value')).toEqual('new value')
 
@@ -48,6 +48,6 @@ describe('the textarea', () => {
     // re-render the app
     wrapped.update()
     // check textarea is cleared
-    expect(wrapped.find('textarea').prop('value')).toEqual('')
+    expect(wrapped.find('textarea').prop('value')).toEqual('e')
   })
 })
